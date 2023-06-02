@@ -3,21 +3,25 @@ from claseSabor import Sabor
 from manejaSabores import ManejaSabores
 
 class ManejaHelados:
-    __ventas: list
+    __listaHelados: list
 
     def __init__(self):
-        self.__HeladosVendidos = []
+        self.__listaHelados = []
+    
+    def get_listaHelados(self):
+        return self.__listaHelados[i]
+    
+    def registrarHelado(self, helado):
+        self.__listaHelados.append(helado)
 
     def registrarHelado(self):
         venta=int(input(print('Ingrese numero de venta')))
         while venta != '0':
             peso = float(input('Ingrese el peso del helado: '))
             precio = float(input('Ingrese el precio del helado: '))
-            sabor1 = int(input('Ingrese el id del sabor 1: '))
-            sabor2 = int(input('Ingrese el id del sabor 2: '))
-            sabor3 = int(input('Ingrese el id del sabor 3: '))
-            unHelado=Helado(peso, precio,sabores=[sabor1,sabor2,sabor3])
-            self.__ventas.append(unHelado) 
+            sabores = int(input('Ingrese el id del sabor 1: '))
+            unHelado=Helado(peso, precio,sabores)
+            self.registrarHelado.append(unHelado) 
             venta=int(input(print('Helado registrado con exito!, si desea ingresar otra venta ingrese numero de venta, de lo contrario ingrese 0')))
     
     def mostrarSaboresMasPedidos(self):
@@ -33,7 +37,6 @@ class ManejaHelados:
             idHelado += 1
 
         masPedidos = contadorSabores.most_common(5)
-
         print("Los 5 sabores más pedidos son:")
         for sabor, cantidad in masPedidos:
             print(f"ID del sabor: {sabor}, cantidad de pedidos: {cantidad}")
