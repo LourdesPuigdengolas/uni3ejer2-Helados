@@ -7,9 +7,6 @@ class ManejaHelados:
 
     def __init__(self):
         self.__HeladosVendidos = []
-        #self.__helados = []
-    #def registrar_helado(self, helado):
-        #self.__helados.append(helado)
 
     def registrarHelado(self):
         venta=int(input(print('Ingrese numero de venta')))
