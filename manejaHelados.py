@@ -3,43 +3,31 @@ from claseSabor import Sabor
 from manejaSabores import ManejaSabores
 
 class ManejaHelados:
-    __listaHelados: list
+    __heladosVendidos: list
 
     def __init__(self):
-        self.__listaHelados = []
+        self.__heladosVendidos = []
     
     def get_listaHelados(self):
-        return self.__listaHelados[i]
+        return self.__heladosVendidos[i]
     
-    def registrarHelado(self, helado):
-        self.__listaHelados.append(helado)
+    def registrarHeladoVendido(self, helado):
+        self.__heladosVendidos.append(helado)
 
-    def registrarHelado(self):
-        venta=int(input(print('Ingrese numero de venta')))
-        while venta != '0':
-            peso = float(input('Ingrese el peso del helado: '))
-            precio = float(input('Ingrese el precio del helado: '))
-            sabor = int(input('Ingrese el id del sabor 1: '))
-            unHelado=Helado(peso, precio,sabor)
-            self.registrarHelado.append(unHelado) 
-            venta=int(input(print('Helado registrado con exito!, si desea ingresar otra venta ingrese numero de venta, de lo contrario ingrese 0')))
-    
+    def obtenerSaboresPorTipoHelado(self, peso_helado):
+        sabores = []
+        for helado in self.helados_vendidos:
+            if helado.peso_helado == peso_helado:
+                sabores.extend(helado.sabores)
+        return sabores
+
     def mostrarSaboresMasPedidos(self):
-        cantSabores= Counter()
-        idHelado = 0
-        while idHelado < len(self.__helados):
-            helado = self.__helados[idHelado]
-            idSabor = 0
-            while idSabor < len(helado._Helado__sabor):
-                sabor = helado._Helado__sabor[idSabor]
-                contadorSabores[sabor._Sabor__idSabor] += 1
-                idSabor += 1
-            idHelado += 1
-
-        masPedidos = contadorSabores.most_common(5)
-        print("Los 5 sabores más pedidos son:")
-        for sabor, cantidad in masPedidos:
-            print(f"ID del sabor: {sabor}, cantidad de pedidos: {cantidad}")
+        importeTotalxTipo= {}
+        for helado in self.helados_vendidos:
+            if helado.peso_helado not in importeTotalxTipo:
+                importeTotalxTipo[helado.peso_helado] = 0
+            importeTotalxTipo[helado.peso_helado] += helado.precio
+        return importeTotalxTipo
 
     def gramosVendidosXSabor(self, numeroSabor):
         gramosVendidos = 0
@@ -67,6 +55,7 @@ class ManejaHelados:
                 while idSabor < len(helado._Helado__sabor):
                     sabor = helado._Helado__sabor[idSabor]
                     sabor_tamano.add(sabor._Sabor__idSabor)
+
                     idSabor += 1
             idHelado += 1
 
