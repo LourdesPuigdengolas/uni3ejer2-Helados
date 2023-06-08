@@ -19,8 +19,8 @@ class ManejaHelados:
         while venta != '0':
             peso = float(input('Ingrese el peso del helado: '))
             precio = float(input('Ingrese el precio del helado: '))
-            sabores = int(input('Ingrese el id del sabor 1: '))
-            unHelado=Helado(peso, precio,sabores)
+            sabor = int(input('Ingrese el id del sabor 1: '))
+            unHelado=Helado(peso, precio,sabor)
             self.registrarHelado.append(unHelado) 
             venta=int(input(print('Helado registrado con exito!, si desea ingresar otra venta ingrese numero de venta, de lo contrario ingrese 0')))
     
@@ -30,8 +30,8 @@ class ManejaHelados:
         while idHelado < len(self.__helados):
             helado = self.__helados[idHelado]
             idSabor = 0
-            while idSabor < len(helado._Helado__sabores):
-                sabor = helado._Helado__sabores[idSabor]
+            while idSabor < len(helado._Helado__sabor):
+                sabor = helado._Helado__sabor[idSabor]
                 contadorSabores[sabor._Sabor__idSabor] += 1
                 idSabor += 1
             idHelado += 1
@@ -47,8 +47,8 @@ class ManejaHelados:
         while idHelado < len(self.__helados):
             helado = self.__helados[idHelado]
             idSabor = 0
-            while idSabor < len(helado._Helado__sabores):
-                sabor = helado._Helado__sabores[idSabor]
+            while idSabor < len(helado._Helado__sabor):
+                sabor = helado._Helado__sabor[idSabor]
                 if sabor._Sabor__idSabor == numeroSabor:
                     gramos_vendidos += helado._Helado__gramos
                     break
@@ -58,20 +58,20 @@ class ManejaHelados:
         print(f"Se vendieron aproximadamente {gramosVendidos} gramos del sabor {numeroSabor}")
 
     def mostrarSaboresVendidos(self, tamano):
-        sabores_tamano = set()
+        sabor_tamano = set()
         idHelado = 0
         while idHelado < len(self.__helados):
             helado = self.__helados[idHelado]
             if helado._Helado__gramos == tamano:
                 idSabor = 0
-                while idSabor < len(helado._Helado__sabores):
-                    sabor = helado._Helado__sabores[idSabor]
-                    sabores_tamano.add(sabor._Sabor__idSabor)
+                while idSabor < len(helado._Helado__sabor):
+                    sabor = helado._Helado__sabor[idSabor]
+                    sabor_tamano.add(sabor._Sabor__idSabor)
                     idSabor += 1
             idHelado += 1
 
         print(f"Sabores vendidos en helados de {tamano} gramos:")
-        for sabor in sabores_tamano:
+        for sabor in sabor_tamano:
             print(f"ID del sabor: {sabor}")
 
     def calcularTotalXTipo(self):

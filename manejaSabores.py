@@ -2,16 +2,16 @@ from claseSabor import Sabor
 import csv
 
 class ManejaSabores:
-    __sabores: list
+    __sabor: list
 
     def __init__(self):
-        self.__sabores = []
+        self.__sabor = []
         
     def get_sabor(self, i):
-        return self.__sabores[i]
+        return self.__sabor[i]
     
     def agregarSabor(self, sabor):
-        self.__sabores.append(sabor) 
+        self.__sabor.append(sabor) 
         
     def cargarSabores(self):
         with open("sabores.csv") as archivo:
